@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Demo</title>
+
+<!-- SELECT 数据绑定 和 联动 -->
+
+</head>
+<body ng-app="MyTutorialApp">
+	<div id="content" ng-controller="MainController">
+		using object: 
+		<select ng-model='selectedPerson' ng-options='name for (name, value) in people'></select>
+		<select ng-model='selectedGenre'>
+			<option ng-repeat='label in people[selectedPerson.name].music'>{{label}}</option>
+		</select>
+	</div>
+	<div id="content" ng-controller="ArrController">
+	using array:
+		<select ng-model='selectedPerson' ng-options='obj.name for obj in people'></select>
+		<select ng-model='selectedGenre'>
+			<option ng-repeat='label in people[selectedPerson.id].music'>{{label}}</option>
+		</select>
+	</div>
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
+<script src="maincontroller.js"></script>
+</body>
+</html>
