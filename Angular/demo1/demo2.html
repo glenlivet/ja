@@ -23,23 +23,22 @@
 <body ng-app="app">
 	<div ng-controller="MyController">
 		<p>{{user.diameter}}</p>
-		
-		Diameter: <input type="range" ng-model="user.diameter" ng-change="calcStyle(user)" min="1" max="400" />
-		
+		Diameter: 
+		<input type="range" ng-model="user.diameter" 
+		ng-change="calcStyle(user)" min="1" max="400" />		
 		<div id="circle" ng-style="style(user)">
 	</div>
-
 <script src="angular.min.js"></script>
 <script>
 	var app = angular.module('app', []);
- 
 	app.controller("MyController", function($scope){
         $scope.user = {
             diameter: 200,
             style:{},
         };
 		$scope.calcStyle = function(user){
-			user.style = {'width':user.diameter+'px','height':user.diameter+'px'}
+			user.style = {'width':user.diameter+'px',
+			'height':user.diameter+'px'};
 		};
 		$scope.style = function(user) {
 			return user.style;
